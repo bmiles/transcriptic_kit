@@ -18,42 +18,42 @@ Or install it yourself as:
 
     $ gem install transcriptic_kit
 
-    ## Usage
+## Usage
 
-    With your account details, retrieve a client instance with it.
+With your account details, retrieve a client instance with it.
 
-    ```ruby
-    client = TranscripticKit::Client.new(
-      email: 'TRANSCRIPTIC_EMAIL',
-      key: 'TRANSCRIPTIC_API_KEY',
-      org_name: 'TRANSCRIPTIC_ORG_NAME_URL'
-    )
-    ```
+```ruby
+client = TranscripticKit::Client.new(
+  email: 'TRANSCRIPTIC_EMAIL',
+  key: 'TRANSCRIPTIC_API_KEY',
+  org_name: 'TRANSCRIPTIC_ORG_NAME_URL'
+)
+```
 
-    ## Design
+## Design
 
-    TranscripticKit follows a strict design of resources as methods on your client. For examples, for projects, you will call your client like this:
+TranscripticKit follows a strict design of resources as methods on your client. For examples, for projects, you will call your client like this:
 
-    ```ruby
-    client = TranscripticKit::Client.new(
-      email: 'TRANSCRIPTIC_EMAIL',
-      key: 'TRANSCRIPTIC_API_KEY',
-      org_name: 'TRANSCRIPTIC_ORG_NAME_URL'
-    )
-    client.projects #=> ProjectsResource
-    ```
+```ruby
+client = TranscripticKit::Client.new(
+  email: 'TRANSCRIPTIC_EMAIL',
+  key: 'TRANSCRIPTIC_API_KEY',
+  org_name: 'TRANSCRIPTIC_ORG_NAME_URL'
+)
+client.projects #=> ProjectsResource
+```
 
-    TranscripticKit will return Plain Old Ruby objects(tm) that contain the information provided by the API. For example:
+TranscripticKit will return Plain Old Ruby objects(tm) that contain the information provided by the API. For example:
 
-    ```ruby
-    client = TranscripticKit::Client.new(
-      email: 'TRANSCRIPTIC_EMAIL',
-      key: 'TRANSCRIPTIC_API_KEY',
-      org_name: 'TRANSCRIPTIC_ORG_NAME_URL'
-    )
-    client.projects.all
-    # => [ TranscripticKit::Project(id: "pbar", name: 'Some study', ...), TranscripticKit::Project(id: "pfoo", name: 'Mammoth Cloning', ...) ]
-    ```
+```ruby
+client = TranscripticKit::Client.new(
+  email: 'TRANSCRIPTIC_EMAIL',
+  key: 'TRANSCRIPTIC_API_KEY',
+  org_name: 'TRANSCRIPTIC_ORG_NAME_URL'
+)
+client.projects.all
+# => [ TranscripticKit::Project(id: "pbar", name: 'Some study', ...), TranscripticKit::Project(id: "pfoo", name: 'Mammoth Cloning', ...) ]
+```
 
 ## Development
 
