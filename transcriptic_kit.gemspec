@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Ben Miles"]
   spec.email         = ["ben.miles2@gmail.com"]
 
-  spec.summary       = %q{ben ben}
-  spec.homepage      = "www.transcriptic.com"
+  spec.summary       = %q{TranscripticKit is a Transcriptic API client for Ruby}
+  spec.homepage      = "https://github.com/bmiles/transcriptic_kit"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or

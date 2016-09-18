@@ -1,8 +1,6 @@
 # TranscripticKit
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/transcriptic_kit`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Based on DropletKit from Digital Ocean
 
 ## Installation
 
@@ -20,9 +18,42 @@ Or install it yourself as:
 
     $ gem install transcriptic_kit
 
-## Usage
+    ## Usage
 
-TODO: Write usage instructions here
+    With your account details, retrieve a client instance with it.
+
+    ```ruby
+    client = TranscripticKit::Client.new(
+      email: 'TRANSCRIPTIC_EMAIL',
+      key: 'TRANSCRIPTIC_API_KEY',
+      org_name: 'TRANSCRIPTIC_ORG_NAME_URL'
+    )
+    ```
+
+    ## Design
+
+    TranscripticKit follows a strict design of resources as methods on your client. For examples, for projects, you will call your client like this:
+
+    ```ruby
+    client = TranscripticKit::Client.new(
+      email: 'TRANSCRIPTIC_EMAIL',
+      key: 'TRANSCRIPTIC_API_KEY',
+      org_name: 'TRANSCRIPTIC_ORG_NAME_URL'
+    )
+    client.projects #=> ProjectsResource
+    ```
+
+    TranscripticKit will return Plain Old Ruby objects(tm) that contain the information provided by the API. For example:
+
+    ```ruby
+    client = TranscripticKit::Client.new(
+      email: 'TRANSCRIPTIC_EMAIL',
+      key: 'TRANSCRIPTIC_API_KEY',
+      org_name: 'TRANSCRIPTIC_ORG_NAME_URL'
+    )
+    client.projects.all
+    # => [ TranscripticKit::Project(id: "pbar", name: 'Some study', ...), TranscripticKit::Project(id: "pfoo", name: 'Mammoth Cloning', ...) ]
+    ```
 
 ## Development
 
@@ -38,4 +69,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
