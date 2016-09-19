@@ -21,7 +21,8 @@ module TranscripticKit
     def self.resources
       {
         projects: ProjectResource,
-        organization: OrganizationResource
+        organization: OrganizationResource,
+        runs: RunResource
       }
     end
 

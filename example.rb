@@ -10,7 +10,7 @@ client = TranscripticKit::Client.new(
 )
 
 ## Work with your Organization
-puts client.organization.info.name
+puts client.organization.info
 
 ## Work with Projects
 
@@ -25,12 +25,12 @@ puts project.bsl
 puts created.bsl
 # => 1
 
-project.bsl = "a"
+project.bsl = "2"
 puts project.bsl
 # => 2
 
 ## Update on the server
-updated = client.projects.update(project, id: project.id)
+updated = client.projects.update(project, id: created.id)
 puts updated.bsl
 # => 2
 
