@@ -1,5 +1,8 @@
 require 'faraday'
 
+TRANSCRIPTIC_URL = "https://secure.transcriptic.com/"
+
+
 module TranscripticKit
   class Client
 
@@ -9,7 +12,6 @@ module TranscripticKit
       @email = options.with_indifferent_access[:email]
       @key = options.with_indifferent_access[:key]
       @org_name = options.with_indifferent_access[:org_name]
-      @org_url = "https://secure.transcriptic.com/#{options.with_indifferent_access[:org_name]}"
     end
 
     def connection
@@ -28,7 +30,7 @@ module TranscripticKit
 
     def method_missing(name, *args, &block)
       if self.class.resources.keys.include?(name)
-        resources[name] ||= self.class.resources[name].new(connection: connection)
+        resources[name] ||= self.class.resources[name].new(connection: connection, org_name: @org_name)
         resources[name]
       else
         super
@@ -43,7 +45,7 @@ module TranscripticKit
 
     def connection_options
       {
-        url: org_url,
+        url: TRANSCRIPTIC_URL + "/#{@org_name}",
         headers: {
           content_type: 'application/json',
           accept: 'application/json',

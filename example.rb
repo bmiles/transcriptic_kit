@@ -9,13 +9,14 @@ client = TranscripticKit::Client.new(
   org_name: ENV['TRANSCRIPTIC_ORG_NAME_URL']
 )
 
-## Work with your Organization
-puts client.organization.info
+# Work with your Organization
+puts client.organization.info.name
 
-## Work with Projects
+# Work with Projects
 
-## Get all projects
+# Get all projects
 projects = client.projects.all
+puts projects
 
 ## Instantiate a new a project, then save it on the server
 project = TranscripticKit::Project.new(name: "My New Project", bsl:1)
