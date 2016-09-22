@@ -13,14 +13,17 @@ module TranscripticKit
   require_relative 'transcriptic_kit/models/base_model'
   require_relative 'transcriptic_kit/models/project'
   require_relative 'transcriptic_kit/models/organization'
+  require_relative 'transcriptic_kit/models/run'
 
   # Resources
   require_relative 'transcriptic_kit/resources/project_resource'
   require_relative 'transcriptic_kit/resources/organization_resource'
+  require_relative 'transcriptic_kit/resources/run_resource'
 
   # JSON Maps
   require_relative 'transcriptic_kit/mappings/project_mapping'
   require_relative 'transcriptic_kit/mappings/organization_mapping'
+  require_relative 'transcriptic_kit/mappings/run_mapping'
 
   # Errors
   require_relative 'transcriptic_kit/mappings/error_mapping'
