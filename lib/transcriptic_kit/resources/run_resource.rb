@@ -43,8 +43,5 @@ module TranscripticKit
         handler(200) { |response, object| RunMapping.extract_into_object(object, response.body, :read) }
       end
     end
-    resources.each do |res|
-      res.instance_eval('@path = "#{@org_name}/#{res.path}/"')
-    end
   end
 end
