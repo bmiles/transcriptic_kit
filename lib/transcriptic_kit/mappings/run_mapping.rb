@@ -4,12 +4,11 @@ module TranscripticKit
 
     kartograph do
       mapping Run
-      # root_key plural: 'results',  scopes: [:read]
       root_key singular: 'run',  scopes: [:update]
 
-      property :id, :status, :created_at, :accepted_at, :started_at, :updated_at, :completed_at, :results, :progress, :total_cost, :bsl, :owner, scopes: [:read]
+      property :id, :status, :created_at, :accepted_at, :started_at, :refs, :instructions, :updated_at, :completed_at, :results, :progress, :total_cost, :bsl, :owner, scopes: [:read]
       property :title, :test_mode, :protocol, scopes: [:create]
-      property :refs, :instructions, key: "protocol", scopes: [:read]
+      property :refs, :instructions, key: "protocol", scopes: [:create]
     end
   end
 end
