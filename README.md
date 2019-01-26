@@ -1,6 +1,8 @@
 # TranscripticKit
 
-Based on DropletKit from Digital Ocean
+[![Gem Version](https://badge.fury.io/rb/transcriptic_kit.svg)](https://badge.fury.io/rb/transcriptic_kit)
+
+Based on the wrapper framework [DropletKit from Digital Ocean](https://github.com/digitalocean/droplet_kit)
 
 ## Installation
 
