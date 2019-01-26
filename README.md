@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-With your account details, retrieve a client instance with it.
+With your account details, retrieve a client instance.
 
 ```ruby
 client = TranscripticKit::Client.new(
@@ -29,6 +29,25 @@ client = TranscripticKit::Client.new(
   org_name: 'TRANSCRIPTIC_ORG_NAME_URL'
 )
 ```
+
+Fetch and list projects:
+
+```ruby
+projects = client.projects.all
+
+for project in projects
+  puts '#{project.id} | #{project.name}'
+end
+```
+Returns:
+```
+p1cd1234gwnq | My First Project
+p1cd5674zmk5 | My Second Project
+p1cd938598xq | My Third Project
+```
+
+
+See the [Examples](https://github.com/bmiles/transcriptic_kit/tree/master/examples) directory for more examples.
 
 ## Design
 

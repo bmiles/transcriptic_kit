@@ -16,23 +16,27 @@ puts client.organization.info.name
 
 # Get all projects
 projects = client.projects.all
-puts projects
+
+for project in projects
+  puts "#{project.id} | #{project.name}"
+end
 
 ## Instantiate a new a project, then save it on the server
 project = TranscripticKit::Project.new(name: "My New Project", bsl:1)
 created = client.projects.create(project)
-puts project.bsl
+puts "Project object BSL: #{project.bsl}"
 # => 1
-puts created.bsl
+puts "Actual project BSL: #{created.bsl}"
 # => 1
 
 project.bsl = "2"
-puts project.bsl
+puts "Updated project object BSL: #{project.bsl}"
 # => 2
 
 ## Update on the server
 updated = client.projects.update(project, id: created.id)
-puts updated.bsl
+puts "Updating server side.."
+puts "Newly updated project BSL: #{updated.bsl}"
 # => 2
 
 ## Work with Runs
