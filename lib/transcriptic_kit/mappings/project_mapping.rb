@@ -4,12 +4,9 @@ module TranscripticKit
 
     kartograph do
       mapping Project
-      root_key plural: 'results',  scopes: [:read]
-      root_key singular: 'project',  scopes: [:update]
-
-      property :name, :webhook_url, :bsl, scopes: [:read, :create]
-      property :id, :created_at, :updated_at, :archived_at, :users, scopes: [:read]
-      property :name, :bsl, :webhook_url, scopes: [:update]
+      root_key plural: 'data', singular: 'data',  scopes: [:read]
+      property :id, :attributes, scopes:[:read]
+      # property :name, :attributes, scopes:[:read, :update, :create]
     end
   end
 end

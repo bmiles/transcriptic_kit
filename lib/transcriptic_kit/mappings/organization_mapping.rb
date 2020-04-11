@@ -4,9 +4,9 @@ module TranscripticKit
 
     kartograph do
       mapping Organization
-      root_key plural: 'results',  scopes: [:read]
+      root_key plural: 'data', singular: 'data',  scopes: [:read]
 
-      property :id, :name, :created_at, :subdomain, :profile_photo_attachment_url, :collaborators, :addresses, scopes: [:read]
+      property :id, :attributes, scopes: [:read]
     end
   end
 end

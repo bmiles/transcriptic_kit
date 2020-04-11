@@ -6,9 +6,9 @@ module TranscripticKit
       @org_name = options[:org_name]
 
       self.resources.each do |res|
-        res.instance_eval("@path = '#{@org_name}/#{res.path}'")
+        res.instance_eval("@path = '/api#{res.path}'")
       end
-      
+
       super(connection: options[:connection])
     end
 
@@ -19,30 +19,30 @@ module TranscripticKit
 
       action :all do
         verb :get
-        puts @org_name
-        path "projects.json"
+        path "/projects"
         handler(200) { |response| ProjectMapping.extract_collection(response.body, :read) }
       end
 
       action :find do
         verb :get
-        path ":id.json"
+        path "/projects/:id"
         handler(200) { |response| ProjectMapping.extract_single(response.body, :read) }
       end
 
-      action :create do
-        verb :post
-        path ""
-        body { |object| ProjectMapping.representation_for(:create, object) }
-        handler(202) { |response| ProjectMapping.extract_single(response.body, :read) }
-      end
-
-      action :update do
-        verb :put
-        path ":id"
-        body { |object| ProjectMapping.representation_for(:update, object) }
-        handler(200) { |response, object| ProjectMapping.extract_into_object(object, response.body, :read) }
-      end
+      ## Not yet available in the JSON API
+      # action :create do
+      #   verb :post
+      #   path "/projects"
+      #   body { |object| ProjectMapping.representation_for(:create, object) }
+      #   handler(202) { |response| ProjectMapping.extract_single(response.body, :read) }
+      # end
+      #
+      # action :update do
+      #   verb :put
+      #   path "projects/:id"
+      #   body { |object| ProjectMapping.representation_for(:update, object) }
+      #   handler(200) { |response, object| ProjectMapping.extract_into_object(object, response.body, :read) }
+      # end
     end
   end
 end

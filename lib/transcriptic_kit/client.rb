@@ -1,6 +1,6 @@
 require 'faraday'
 
-TRANSCRIPTIC_URL = "https://secure.transcriptic.com/"
+TRANSCRIPTIC_URL = "https://secure.transcriptic.com/api"
 
 
 module TranscripticKit
@@ -17,13 +17,14 @@ module TranscripticKit
     def connection
       Faraday.new(connection_options) do |req|
         req.adapter :net_http
+        req.response :logger, nil, { headers: true, bodies: true }
       end
     end
 
     def self.resources
       {
         projects: ProjectResource,
-        organization: OrganizationResource,
+        organizations: OrganizationResource,
         runs: RunResource
       }
     end
@@ -45,7 +46,7 @@ module TranscripticKit
 
     def connection_options
       {
-        url: TRANSCRIPTIC_URL + "/#{@org_name}",
+        url: TRANSCRIPTIC_URL,
         headers: {
           content_type: 'application/json',
           accept: 'application/json',

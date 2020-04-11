@@ -33,7 +33,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency "resource_kit", '~> 0.1.5'
   spec.add_dependency "kartograph", '~> 0.2.4'
   spec.add_dependency "activesupport", '> 3.0', '< 5.1'
-  spec.add_dependency "faraday", '~> 0.9.2'
+  spec.add_dependency "faraday", '~> 1.0.1' #0.9.2'
+  spec.add_dependency "dotenv", '~> 2.7.5'
 
 
 end
